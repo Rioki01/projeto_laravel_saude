@@ -5,8 +5,10 @@
 @section('conteudo')
 <div class="conteudo-destaque">
     <!--Mensagem sucesso de login.-->
-    @if (session()->has('success'))
-    {{ session()->get('success')}}
+    @if(session()->has("success"))
+        <div class="alert alert-success">
+            {{session()->get("success")}}
+        </div>
     @endif
 <div class="esquerda">
     <div class="informacoes">

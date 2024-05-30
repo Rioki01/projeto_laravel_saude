@@ -30,10 +30,18 @@ class AuthController extends Controller
         $authenticated = Auth::attempt($credentials);
 
         if(!$authenticated){
-            return redirect()->route('site.login')->withErrors('error', 'Falha ao realizar login!');
+            return redirect(route('site.login'))->with('error', 'Falha ao realizar login!');
         }
-        return redirect()->route('app.home')->with('success','Sucesso ao realizer login'); 
+        return redirect()->intended('home')->with('success','Sucesso ao realizer login'); 
     }
+
+    //logout
+    public function loginDestroy()
+    {
+        Auth::logout();
+        return redirect()->route('site.login');
+    }
+
 
     public function cadastro(){
         return view("site.cadastro");

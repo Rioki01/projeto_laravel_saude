@@ -9,11 +9,14 @@ class CheckAccessMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
-            // Se o usuário não estiver autenticado, redireciona para a página de login
-            return redirect()->route('site.login')->with('error', 'Por favor, faça login para acessar esta página.');
+        $isAuthenticated = (Auth::check());
+       if (!$isAuthenticated) {
+    // Se o usuário não estiver autenticado, redireciona para a página de login
+        return redirect(route('site.login'))->with('error', 'Por favor, faça login para acessar esta página.');
     }
     // Se o usuário estiver autenticado, permite que a solicitação prossiga
     return $next($request);
     }
 }
+
+
