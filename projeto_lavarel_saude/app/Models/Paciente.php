@@ -4,9 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+//adiciona authenticação ao modelo
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Paciente extends Model
+class Paciente extends Authenticatable
 {
     use HasFactory;
-    protected $fillable = ['nome', 'data_nascimento', 'cpf', 'telefone'];
+    protected $fillable = ['nome', 'email', 'senha', 'cpf'];
+    public $timestamps = false;
+
+    public function consultas()
+    {
+        return $this->hasMany(Consulta::class);
+    }
+    //'telefone', 'data_nascimento'
 }

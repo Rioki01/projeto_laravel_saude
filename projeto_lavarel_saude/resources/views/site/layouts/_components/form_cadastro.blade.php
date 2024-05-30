@@ -1,13 +1,23 @@
 
 {{ $slot }}
-<form method="POST" action="{{ route('site.cadastro') }}">
+<form method="POST" action="{{ route('cadastro.post') }}">
     @csrf
-    <input name="email" type="text" placeholder="E-mail" id="email_address" class="{{ $classe }} required autofocus">
+    <input name="nome" type="text" placeholder="Nome" id="nome" class="{{ $classe }} required autofocus">
+    @if ($errors->has('nome'))
+        <span class="text-danger">{{ $errors->first('nome') }}</span>
+        @endif
+    <br>
+    <input name="cpf" type="text" placeholder="CPF" id="cpf" class="{{ $classe }} required autofocus">
+    @if ($errors->has('cpf'))
+        <span class="text-danger">{{ $errors->first('cpf') }}</span>
+        @endif
+    <br>
+    <input name="email" type="text" placeholder="E-mail" id="email" class="{{ $classe }} required autofocus">
     @if ($errors->has('email'))
         <span class="text-danger">{{ $errors->first('email') }}</span>
         @endif
     <br>
-    <input name="senha" type="password" placeholder="Senha" id="password" class="{{ $classe }} required autofocus">
+    <input name="senha" type="password" placeholder="Senha" id="senha" class="{{ $classe }} required autofocus">
     @if ($errors->has('password'))
         <span class="text-danger">{{ $errors->first('password') }}</span>
         @endif

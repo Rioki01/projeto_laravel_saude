@@ -7,6 +7,18 @@
         <div class="titulo-pagina">
         <h1>Cadastro</h1>
         </div>
+        
+        <!--mensagem ao cadastrar/falhar-->
+        @if(session()->has("success"))
+            <div class="alert alert-success">
+                {{session()->get("success")}}
+            </div>
+        @endif
+        @if(session()->has("error"))
+            <div class="alert alert-success">
+                {{session()->get("error")}}
+            </div>
+        @endif
 
         <div class="informacao-pagina">
             <div class="login-principal">
