@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckMed - @yield('titulo')</title>
-    <link rel="stylesheet" href="{{ asset('css/estilo_basico.css') }}">
-</head>
-<body>
-    @include('site.layouts._partials.topo')
-    @yield('conteudo')
-</body>
+<html lang="en">
+    <head>
+        <!-- yield referece á um parâmetro vindo do controller -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CheckMed - @yield('titulo')</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    </head>
+    <body class="body">
+    
+        @yield('conteudo')
+    
+    </body>
 </html>
-<!-- :yield refere-se a um campo que retorna por parametro do controller,
-exemplo, [titulo] no controller.-->
-<!-- para inserir coisas como javascript ou imagens, utiliza o "asset" e o caminho do destino. -->
-<!-- :include refere-se a forma de incluir partes de front-end, como topo, rodapé ou body. -->
-<!-- o yield para o conteudo, é dinamico, pois permite cada pagina mostrar seu proprio conteudo -->

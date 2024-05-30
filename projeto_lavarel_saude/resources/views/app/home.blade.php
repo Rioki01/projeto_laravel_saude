@@ -1,22 +1,32 @@
-@extends('app.layouts.basicoauth')
+@extends('site.layouts.basico')
 
-@section('titulo', 'Home')
+@section('titulo', 'Interno')
 
 @section('conteudo')
-<div class="conteudo-destaque">
-    <!--Mensagem sucesso de login.-->
-    @if(session()->has("success"))
-        <div class="alert alert-success">
-            {{session()->get("success")}}
-        </div>
-    @endif
-<div class="esquerda">
-    <div class="informacoes">
-        <h1>CheckMed</h1>
-        <p>Home<p>
-    </div>
-</div>
 
-<div class="direita">
-</div>
+    <div class="d-flex w-100">
+        <div class="w-auto">
+            <div class="sidebar d-flex flex-column justify-content-between">
+                <div>
+                    <h1>CheckMed</h1>
+                    <div>
+                        <a href="">
+                            <button>Agendar consulta</button>
+                        </a>
+                        <a href="">
+                            <button>Agendados</button>
+                        </a>
+                        <a href="">
+                            <button>Médicos</button>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ route('site.index') }}"><button class="btns btn-white">Sair</button></a>
+                </div>
+            </div>
+        </div>
+        <div><img src="{{ asset('img/Rectangle 36.png') }}" alt="ImgCadastroLogin" width="800"></div>
+    </div>
+
 @endsection
