@@ -17,7 +17,7 @@
         <span class="text-danger">{{ $errors->first('email') }}</span>
         @endif
     <br>
-    <input name="senha" type="password" placeholder="Senha" id="senha" class="{{ $classe }} required autofocus">
+    <input name="password" type="password" placeholder="Senha" id="password" class="{{ $classe }} required autofocus">
     @if ($errors->has('password'))
         <span class="text-danger">{{ $errors->first('password') }}</span>
         @endif

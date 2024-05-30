@@ -16,11 +16,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['nome', 'email', 'password', 'cpf'];
+    public $timestamps = false;
+
+    //'telefone', 'data_nascimento'
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,5 +42,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function consultas()
+    {
+        return $this->hasMany(Consulta::class);
     }
 }

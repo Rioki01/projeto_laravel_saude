@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+    //aparentemente o Auth padrão, somente lê direto do 'users' table.
+
+    
     /**
      * Run the migrations.
      */
@@ -15,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string('email')->unique();
-            $table->string('senha');
+            $table->string('password');
             //$table->string('data_nascimento');
             $table->string('cpf');
             //$table->string('telefone');

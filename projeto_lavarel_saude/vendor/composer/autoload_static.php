@@ -359,8 +359,8 @@ class ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -530,9 +530,21 @@ class ComposerStaticInitda9b7a1dc1dd923105198c572cc7df8d
     );
 
     public static $classMap = array (
+        'App\\Http\\Controllers\\AppController' => __DIR__ . '/../..' . '/app/Http/Controllers/AppController.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
+        'App\\Http\\Controllers\\ConsultaController' => __DIR__ . '/../..' . '/app/Http/Controllers/ConsultaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\MedicoController' => __DIR__ . '/../..' . '/app/Http/Controllers/MedicoController.php',
+        'App\\Http\\Controllers\\PacienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/PacienteController.php',
+        'App\\Http\\Controllers\\SiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/SiteController.php',
+        'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\CheckAccessMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckAccessMiddleware.php',
+        'App\\Models\\Consulta' => __DIR__ . '/../..' . '/app/Models/Consulta.php',
+        'App\\Models\\Medico' => __DIR__ . '/../..' . '/app/Models/Medico.php',
+        'App\\Models\\Paciente' => __DIR__ . '/../..' . '/app/Models/Paciente.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consulta;
-use App\Models\Paciente;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 // CRUD Consultas
@@ -16,7 +16,7 @@ class ConsultaController extends Controller
     }
     
     public function create(){
-        $pacientes = Paciente::all();
+        $pacientes = User::all();
         return view('consultas.create', compact('paciente'));
     }
 
@@ -26,7 +26,7 @@ class ConsultaController extends Controller
     }
 
     public function edit(Consulta $consulta){
-        $pacientes = Paciente::all();
+        $pacientes = User::all();
         return view('consultas.edit', compact('consulta'));
     }
 

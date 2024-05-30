@@ -10,7 +10,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Paciente extends Authenticatable
 {
     use HasFactory;
-    protected $fillable = ['nome', 'email', 'senha', 'cpf'];
+    protected $fillable = ['teste'];
+    //protected $fillable = ['nome', 'email', 'password', 'cpf'];
     public $timestamps = false;
 
     public function consultas()

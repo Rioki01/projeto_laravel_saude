@@ -21,6 +21,6 @@ Route::post('/cadastro', [AuthController::class, 'cadastroPost'])->name('cadastr
 
 //rotas após autenticação/login.
 //todas paginas que so podem ser vista por clientes, estarão aqui!  
-Route::middleware("auth:custom")->group(function(){
+Route::middleware("auth")->group(function(){
     Route::get('/home', [AppController::class, 'home'])->name('app.home');
 });

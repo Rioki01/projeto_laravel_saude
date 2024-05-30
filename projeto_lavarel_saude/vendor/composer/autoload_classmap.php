@@ -6,9 +6,21 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Http\\Controllers\\AppController' => $baseDir . '/app/Http/Controllers/AppController.php',
+    'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
+    'App\\Http\\Controllers\\ConsultaController' => $baseDir . '/app/Http/Controllers/ConsultaController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\MedicoController' => $baseDir . '/app/Http/Controllers/MedicoController.php',
+    'App\\Http\\Controllers\\PacienteController' => $baseDir . '/app/Http/Controllers/PacienteController.php',
+    'App\\Http\\Controllers\\SiteController' => $baseDir . '/app/Http/Controllers/SiteController.php',
+    'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\CheckAccessMiddleware' => $baseDir . '/app/Http/Middleware/CheckAccessMiddleware.php',
+    'App\\Models\\Consulta' => $baseDir . '/app/Models/Consulta.php',
+    'App\\Models\\Medico' => $baseDir . '/app/Models/Medico.php',
+    'App\\Models\\Paciente' => $baseDir . '/app/Models/Paciente.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
+    'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',
