@@ -15,6 +15,9 @@
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                     @endif
                     <input class="my-3 input-cadastro-login required autofocus" type="password" name="password" id="password" placeholder="Senha">
+                    @if ($errors->has('password'))
+                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                    @endif
                     
                     <button type="submit" class="btn-blue-login my-4">Acessar</button>
                 </form>

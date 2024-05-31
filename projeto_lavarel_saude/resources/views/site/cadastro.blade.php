@@ -30,6 +30,7 @@
                     @if ($errors->has('password'))
                     <span class="text-danger">{{ $errors->first('password') }}</span>
                     @endif
+                    
                     <input class="input-cadastro-login" type="password" name="confirm_password" id="confirm_password" placeholder="Confirmar senha">
                     
                     <button type="submit" class="btn-blue-login my-5">Cadastrar</button>

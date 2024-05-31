@@ -54,13 +54,15 @@ class AuthController extends Controller
             "cpf" => "required",
             "email" => "required|email",
             "password" => "required|min:5",
+            "phone" => "required",
         ],[ //mensagens de erro!
             'nome.required' => 'Nome é obrigatorio para cadastro.',
             'cpf.required' => 'CPF é obrigatorio para cadastro.',
             'email.required' => 'Email é obrigatorio para cadastro.',
             'email.email' => 'Email invalido.',
             'password.required' => 'Senha é obrigatoria para login.',
-            'password.min' => 'A password deve ter no mínimo :min caracteres'
+            'password.min' => 'A password deve ter no mínimo :min caracteres',
+            'phone.required' => 'telefone é obrigatorio para login.'
         ]);
         
         //se sim, avança para o registro.
@@ -69,6 +71,7 @@ class AuthController extends Controller
         $paciente->cpf = $request->cpf;
         $paciente->email = $request->email;
         $paciente->password = Hash::make($request->password);
+        $paciente->phone = $request->phone;
         //se criado, manda o usuario para pagina de login
         if($paciente->save()){
             return redirect(route("site.login"))->with("success", "Cadastro realizado com sucesso!");

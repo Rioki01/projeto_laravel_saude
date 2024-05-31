@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\Route;
 //rotas após autenticação/login.
 //todas paginas que so podem ser vista apos login, estarão aqui!  
 Route::middleware("auth")->group(function(){
-    Route::get('/home', [AppController::class, 'home'])->name('app.home');
+    Route::get('/home', [AppController::class, 'home'])->name('interno.home');
+    Route::get('/agendamento', [AppController::class, 'agendamento'])->name('interno.agendamento');
+    Route::get('/consultas', [AppController::class, 'consultas'])->name('interno.consultas');
+    Route::get('/medicos', [AppController::class, 'medicos'])->name('interno.medicos');
 });
 
 //rotas antes da autenticação/login.

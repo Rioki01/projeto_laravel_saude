@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 class AppController extends Controller
 {
     public function home(){
-        return view('app.home');
+        return view('interno.home');
     }
+    public function agendamento(){
+        return view('interno.agendamento');
+    }
+    public function consultas(){
+        return view('interno.consultas');
+    }
+    public function medicos(){
+        return view('interno.medicos');
+    }
+    
 }
