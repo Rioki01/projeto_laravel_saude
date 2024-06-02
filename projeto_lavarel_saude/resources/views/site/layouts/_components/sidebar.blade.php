@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center align-items-center py-5">
-                    <a href="{{ route('site.index') }}"><button class="btns btn-white px-5">Sair</button></a>
+                    <a href="{{ route('login.destroy') }}"><button class="btns btn-white px-5">Sair</button></a>
                 </div>
             </div>
         </div>

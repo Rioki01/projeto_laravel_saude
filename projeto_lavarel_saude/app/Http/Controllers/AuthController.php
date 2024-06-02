@@ -14,6 +14,9 @@ class AuthController extends Controller
     public function login(){
         return view("site.login");
     }
+    public function redirectlogin(){
+        return view("site.login");
+    }
 
     public function loginPost(Request $request){
         //checa se há dados para validar

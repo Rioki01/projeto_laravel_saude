@@ -15,6 +15,7 @@
 
 .body{
     background-color: var(--main-white);
+    min-height: 100vh;
 }
 
 .logo{
@@ -41,6 +42,26 @@
     border-radius: 10px;
     padding: 10px 26px;
     background-color: var(--main-blue);
+    color: var(--main-white);
+}
+
+.btn-blue-agendar{
+    border: none;
+    font-weight: 400;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 8px 28px;
+    background-color: var(--main-blue);
+    color: var(--main-white);
+}
+
+.btn-cancelar{
+    border: none;
+    font-weight: 400;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 8px 28px;
+    background-color: #d90f0f;
     color: var(--main-white);
 }
 
@@ -82,6 +103,12 @@
     color: var(--main-text);
     font-weight: 300;
     font-size: 28px;
+}
+
+.subtitulo-agendamento{
+    color: var(--main-blue);
+    font-weight: 500;
+    font-size: 22px;
 }
 
 .area-text-home{
@@ -133,8 +160,17 @@
     border-radius: 12px;
     padding: 10px 14px;
     font-weight: 300;
-    color: #207EA6;
+    color: var(--main-blue);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
+}
+
+.inputs-agendamento{
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 300;
+    color: var(--main-text);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .input-cadastro-login::placeholder{
@@ -157,8 +193,46 @@
 .area-home-interno{
     min-height: 100vh;
     background: radial-gradient(circle at 100% 49%, rgba(32, 126, 166, 0.27), rgba(255, 255, 255, 0) 38%);
-
 }
+
+.area-medico-consulta{
+    border-radius: 12px;
+    font-weight: 400;
+    color: var(--main-text);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 900px;
+}
+
+.area-medico-consulta h3{
+    font-size: 17px;
+}
+
+.area-medico-consulta p{
+    font-size: 14px;
+}
+
+.img-medico{
+    border-radius: 10px;
+}
+
+.info-medico{
+    color: var(--main-text);
+}
+
+.info-medico h3{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.info-medico h4{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.info-medico p, .info-agendamento p{
+    font-size: 14px;
+}
+
 
 .sidebar{
     background-color: var(--main-blue);
