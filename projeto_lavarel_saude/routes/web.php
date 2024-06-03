@@ -12,22 +12,21 @@ use Illuminate\Support\Facades\Route;
 //todas paginas que so podem ser vista apos login, estarão aqui!  
 
 Route::group(['middleware' => 'auth'], function () {
-    //adiciona e mostra todos agendamentos/medicos
     Route::get('/agendamento', [AppController::class, 'agendamento'])->name('interno.agendamento');
     Route::get('/agendamento', [MedicoController::class, 'listMedicosagendamento'])->name('interno.agendamento');
     Route::get('/agendamento/{medicoId}', [ConsultaController::class, 'agendamento_medico'])->name('interno.agendamento_medico');
-    //consultas
+    
     Route::get('/consultas', [AppController::class, 'consultas'])->name('interno.consultas');
     Route::get('/consultas', [ConsultaController::class, 'listarConsultas'])->name('interno.consultas');
-    //adiciona consulta
-    Route::get('/consulta/{consultaId}', [ConsultaController::class, 'detalharConsulta'])->name('interno.consulta');
+    Route::post('/consultas/post', [ConsultaController::class, 'storeConsultas'])->name('consulta.insert');
+
     Route::post('/consultas', [ConsultaController::class, 'storeConsultas'])->name('consulta.insert');
+    Route::get('/consulta/{consultaId}', [ConsultaController::class, 'detalharConsulta'])->name('interno.consulta');
     Route::get('/{id}/editar', [AppController::class, 'edit'])->name('interno.edit-consulta');
     Route::post('/consultas', [AppController::class, 'edit'])->name('edit-consulta.post');
 
     Route::get('/{id}/delete', [AppController::class, 'delete'])->name('interno.delete-consulta');
 
-    //pagina para medicos
     Route::get('/medicos', [MedicoController::class, 'medicos'])->name('interno.medicos');
     Route::get('/medicos', [MedicoController::class, 'listMedicos'])->name('interno.medicos');
     Route::get('/medico_informacao', [MedicoController::class, 'medicoinformacao'])->name('interno.medico_informacao');

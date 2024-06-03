@@ -15,55 +15,44 @@
             <div class="d-flex align-itemns-center mb-4 w-50">
                 <img src="{{ asset('img/Rectangle 81.png') }}" width="120" height="120" class="img-medico mx-2"/>
                 <div class="d-flex flex-column justify-content-between info-medico">
-                @foreach($consultas as $consulta)
-                    <h3 class="m-0 mb-1">Nome: {{$consulta->nome}}</h3>
-                    <h4 class="m-0">Especialidade: {{$consulta->especialidade}}</h4>
-                    <h4>{{$consulta->preco}}</h4>
-                    <p>Cidade: {{$consulta->cidade}}</p>
+                    <h3 class="m-0 mb-1">Nome do Médico</h3>
+                    <h4 class="m-0">Especialidade: Especialidade do médico</h4>
+                    <h4>R$ 120,00</h4>
+                    <p>Cidade: Cidade do Médico</p>
                 </div>
             </div>
-            <form action="{{route("consulta.insert")}}" class="w-50" method="POST">
-                @csrf
+            <form action="{{route("edit-consulta.post")}}" class="w-50">
                 <div class="row m-0 mb-3">
-                <input type="hidden" name="users_id" value="{{$consulta->userId}}">
-                <input type="hidden" name="cidade" value="{{$consulta->cidade}}">
-                <input type="hidden" name="bairro" value="{{$consulta->bairro}}">
-                <input type="hidden" name="rua" value="{{$consulta->rua}}">
-                <input type="hidden" name="numero" value="{{$consulta->numero}}">
-                <input type="hidden" name="especialidade" value="{{$consulta->especialidade}}">
-                <input type="hidden" name="nomemedico" value="{{$consulta->nome}}">
-                <input type="hidden" name="valor" value="{{$consulta->preco}}">
-
                     <div class="col-6">
-                        <input type="text" class="inputs-agendamento w-100" name="horario" placeholder="Horário: 00:00">
+                        <input type="text" class="inputs-agendamento w-100" placeholder="Horário: 14:30h">
                     </div>
                     <div class="col-6">
-                        <input type="date" class="inputs-agendamento w-100" name="data" placeholder="Data: 00/00/0000">
+                        <input type="date" class="inputs-agendamento w-100" placeholder="Data: 00/00/0000">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                        <input type="text" class="inputs-agendamento w-100" name="nomepaciente" placeholder="Nome do paciente">
+                        <input type="text" class="inputs-agendamento w-100" placeholder="Flávia de Lima Kredenser">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                        <input type="text" class="inputs-agendamento w-100" name="telefone" placeholder="Telefone/Celular">
+                        <input type="text" class="inputs-agendamento w-100" placeholder="(00) 00000-0000">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                        <input type="text" class="inputs-agendamento w-100" name="data_nascimento" placeholder="Data de nascimento">
+                        <input type="text" class="inputs-agendamento w-100" placeholder="00/00/0000">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                    <select name="forma_pagamento" id="" class="inputs-agendamento w-100">
+                    <select name="" id="" class="inputs-agendamento w-100">
                             <option value="">Forma de Pagamento</option>
-                            <option value="Dinheiro">Dinheiro</option>
-                            <option value="Pix">Pix</option>
-                            <option value="Cartao">Cartão</option>
-                            <option value="Convenio">Possuo Convênio</option>
+                            <option value="">Dinheiro</option>
+                            <option value="">Pix</option>
+                            <option value="">Cartão</option>
+                            <option value="">Possuo Convênio</option>
                         </select>
                     </div>
                 </div>
@@ -74,7 +63,6 @@
                 </div>
             </form>
         </div>
-        @endforeach
     </div>
     @include('site.layouts._partials.footer')
 
