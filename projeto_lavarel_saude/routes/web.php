@@ -22,7 +22,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/consultas', [ConsultaController::class, 'storeConsultas'])->name('consulta.insert');
     Route::get('/consulta/{consultaId}', [ConsultaController::class, 'detalharConsulta'])->name('interno.consulta');
-    Route::get('/{id}/editar', [AppController::class, 'edit'])->name('interno.edit-consulta');
+    Route::get('/consulta/{consultaId}/edit', [ConsultaController::class, 'editConsulta'])->name('interno.edit-consulta');
+    Route::put('/consulta/{consultaId}', [ConsultaController::class, 'updateConsulta'])->name('update-consulta.post');
+
     Route::post('/consultas', [AppController::class, 'edit'])->name('edit-consulta.post');
 
     Route::delete('delete/{id}', [ConsultaController::class, 'destroyConsulta'])->name('consulta.destroy');

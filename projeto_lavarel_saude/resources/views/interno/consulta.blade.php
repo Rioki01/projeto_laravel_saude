@@ -51,7 +51,7 @@
                 </div>
                 <div class="row m-0 mb-3 w-100">
                     <div class="col-6 p-0">
-                        <a href="{{ route('interno.edit-consulta', ['id' => $consulta->id]) }}"><button class="btn-blue-agendar w-100">Editar agendamento</button></a>
+                        <a href="{{ route('interno.edit-consulta', ['consultaId' => $consulta->id]) }}"><button class="btn-blue-agendar w-100">Editar agendamento</button></a>
                     </div>
                         
                     <div class="col-6">

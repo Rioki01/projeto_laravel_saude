@@ -31,9 +31,9 @@ class ConsultaController extends Controller
         return redirect()->route('interno.consultas');
     }
 
-    public function editConsultas(Consulta $consulta){
-        $pacientes = User::all();
-        return view('interno.consultas', compact('consulta'));
+    public function editConsulta($id){
+        $consultas = Consulta::where('id',$id)->firstOrFail();
+        return view('interno.edit-consulta', compact('consultas'));
     }
 
     public function showConsultas(Consulta $consulta)
@@ -41,8 +41,15 @@ class ConsultaController extends Controller
     return view('interno.consultas', compact('consulta'));
     }
 
-    public function updateConsultas(Request $request, Consulta $consulta){
-        $consulta->update($request->all());
+    public function updateConsulta(Request $request, $id){
+        $consultas = Consulta::find($id);
+        $consultas->horario = $request->input('horario');
+        $consultas->data = $request->input('data');
+        $consultas->nomepaciente = $request->input('nomepaciente');
+        $consultas->telefone = $request->input('telefone');
+        $consultas->data_nascimento = $request->input('data_nascimento');
+        $consultas->forma_pagamento = $request->input('forma_pagamento');
+        $consultas->update();
         return redirect()->route('interno.consultas');
     }
 

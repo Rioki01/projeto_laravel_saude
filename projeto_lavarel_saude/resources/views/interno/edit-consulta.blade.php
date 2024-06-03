@@ -15,44 +15,46 @@
             <div class="d-flex align-itemns-center mb-4 w-50">
                 <img src="{{ asset('img/Rectangle 81.png') }}" width="120" height="120" class="img-medico mx-2"/>
                 <div class="d-flex flex-column justify-content-between info-medico">
-                    <h3 class="m-0 mb-1">Nome do Médico</h3>
-                    <h4 class="m-0">Especialidade: Especialidade do médico</h4>
-                    <h4>R$ 120,00</h4>
-                    <p>Cidade: Cidade do Médico</p>
+                    <h3 class="m-0 mb-1">Nome do Médico:{{ $consultas->nomemedico }}</h3>
+                    <h4 class="m-0">Especialidade: {{ $consultas->especialidade }}</h4>
+                    <h4>{{ $consultas->valor }}</h4>
+                    <p>Cidade: {{ $consultas->cidade }}</p>
                 </div>
             </div>
-            <form action="{{route("edit-consulta.post")}}" class="w-50">
+            <form action="{{route('update-consulta.post',['consultaId' => $consultas->id])}}" class="w-50" method="POST">
+                @csrf
+                @method('PUT')
                 <div class="row m-0 mb-3">
-                    <div class="col-6">
-                        <input type="text" class="inputs-agendamento w-100" placeholder="Horário: 14:30h">
+                <div class="col-6">
+                        <input type="text" class="inputs-agendamento w-100" name="horario" value="{{ $consultas->horario }}" placeholder="Horário: 00:00">
                     </div>
                     <div class="col-6">
-                        <input type="date" class="inputs-agendamento w-100" placeholder="Data: 00/00/0000">
+                        <input type="date" class="inputs-agendamento w-100" name="data" value="{{ $consultas->data }}" placeholder="Data: 00/00/0000">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                        <input type="text" class="inputs-agendamento w-100" placeholder="Flávia de Lima Kredenser">
+                        <input type="text" class="inputs-agendamento w-100" name="nomepaciente" value="{{ $consultas->nomepaciente }}" placeholder="Nome do paciente">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                        <input type="text" class="inputs-agendamento w-100" placeholder="(00) 00000-0000">
+                        <input type="text" class="inputs-agendamento w-100" name="telefone" value="{{ $consultas->telefone }}" placeholder="Telefone/Celular">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                        <input type="text" class="inputs-agendamento w-100" placeholder="00/00/0000">
+                        <input type="text" class="inputs-agendamento w-100" name="data_nascimento" value="{{ $consultas->data_nascimento }}" placeholder="Data de nascimento">
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
-                    <select name="" id="" class="inputs-agendamento w-100">
+                    <select name="forma_pagamento" value="{{ $consultas->forma_pagamento }}" id="" class="inputs-agendamento w-100">
                             <option value="">Forma de Pagamento</option>
-                            <option value="">Dinheiro</option>
-                            <option value="">Pix</option>
-                            <option value="">Cartão</option>
-                            <option value="">Possuo Convênio</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Cartao">Cartão</option>
+                            <option value="Convenio">Possuo Convênio</option>
                         </select>
                     </div>
                 </div>

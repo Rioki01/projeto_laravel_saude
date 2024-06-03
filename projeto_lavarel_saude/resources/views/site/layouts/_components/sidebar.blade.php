@@ -2,6 +2,7 @@
             <div class="sidebar d-flex flex-column justify-content-between">
                 <div>
                     <h1 class="logo-sidebar m-0 py-5">CheckMed</h1>
+                    <p style="color:#fff;font-size:20px;;text-align:center">Bem vindo(a) - {{Auth::user()->nome}}</p>
                     <div class="d-flex flex-column">
                         <a href="{{ route('interno.agendamento') }}">
                             <button class="btns-sidebar">Agendar consulta</button>
