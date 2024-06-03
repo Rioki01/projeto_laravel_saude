@@ -13,16 +13,13 @@
             @foreach($medicos as $medico)
             <div class="area-medico-consulta p-2 d-flex justify-content-between align-itemns-center mb-3">
                 <div class="d-flex align-itemns-center">
-                    <img src="{{ asset('img/Rectangle 81.png') }}" width="75" height="75" class="img-medico mx-2"/>
+                    <img src="{{$medico->imgUrl}}" width="75" height="75" class="img-medico mx-2"/>
                     <div class="d-flex flex-column justify-content-center">
                         <h3 class="m-0">Nome: {{$medico->nome}}</h3>
-                        <h3 class="m-0">{{$medico->descricao}}</h3>
-                        <h3 class="m-0">Valor: {{$medico->preco}}</h3>
-                        <h3 class="m-0">Especialidade: {{$medico->especialidade}}</h3>
-                        <br>
-                        <h3 class="m-0">Cidade: {{$medico->cidade}}</h3>
-                        <h3 class="m-0">Bairro: {{$medico->bairro}}</h3>
-                        <h3 class="m-0">Número: {{$medico->numero}}</h3>
+                        <p class="m-0">{{$medico->descricao}}</p>
+                        <p class="m-0">Valor: {{$medico->preco}}</p>
+                        <p class="m-0">Especialidade: {{$medico->especialidade}}</p>
+
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('userid');
             $table->string('rua');
+            $table->string('imgMedico');
             $table->text('cidade');
             $table->text('bairro');
             $table->text('numero');

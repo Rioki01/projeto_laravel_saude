@@ -1,6 +1,6 @@
 @extends('site.layouts.basico')
 
-@section('titulo', 'Agendar')
+@section('titulo', 'Agendamento')
 
 @section('conteudo')
 
@@ -13,8 +13,8 @@
         <div class="w-100 m-5  px-5 d-flex flex-column justify-content-center align-items-start">
             <div class="mx-5">
                 <div class="d-flex align-itemns-center mb-4 w-100">
-                    <img src="{{ asset('img/Rectangle 81.png') }}" width="120" height="120" class="img-medico"/>
-                    @foreach($consultas as $consulta)
+                @foreach($consultas as $consulta)
+                    <img src="{{$consulta->imgMedico}}" width="120" height="120" class="img-medico"/>
                     <div class="d-flex flex-column justify-content-between info-medico mx-3">
                         <h3 class="m-0 mb-1">Nome do Médico:{{$consulta->nomemedico}}</h3>
                         <h4 class="m-0">Especialidade: {{$consulta->especialidade}}</h4>
@@ -47,7 +47,7 @@
                     <p>Valor da consulta: {{$consulta->valor}}</p>
                     <div class="d-flex">
                         <p>Data: {{$consulta->data}}</p>
-                        <p class="px-5">Hora: {{$consulta->horario}}h</p>
+                        <p class="px-4">Hora: {{$consulta->horario}}h</p>
                     </div>
                 </div>
                 <div class="row m-0 mb-3 w-100">

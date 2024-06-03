@@ -15,5 +15,6 @@ class Medico extends Model
     'cidade',
     'rua',
     'bairro',
-    'numero'];
+    'numero',
+    'imgUrl'];
 }

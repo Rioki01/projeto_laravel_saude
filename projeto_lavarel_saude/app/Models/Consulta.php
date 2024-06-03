@@ -10,6 +10,7 @@ class Consulta extends Model
     use HasFactory;
     protected $fillable = ['rua',
     'bairro',
+    'imgMedico',
     'numero',
     'userid',
     'cidade',

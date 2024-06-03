@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('bairro');
             $table->text('rua');
             $table->text('numero');
+            $table->text('imgUrl');
         });
     }
 
