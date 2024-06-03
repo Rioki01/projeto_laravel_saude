@@ -11,13 +11,15 @@ use Illuminate\Support\Facades\Route;
 //rotas após autenticação/login.
 //todas paginas que so podem ser vista apos login, estarão aqui!  
 
+// Route::get('/consultas', [AppController::class, 'consultas'])->name('interno.consultas');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/agendamento', [AppController::class, 'agendamento'])->name('interno.agendamento');
     Route::get('/agendamento', [MedicoController::class, 'listMedicosagendamento'])->name('interno.agendamento');
     Route::get('/agendamento/{medicoId}', [ConsultaController::class, 'agendamento_medico'])->name('interno.agendamento_medico');
     
-    Route::get('/consultas', [AppController::class, 'consultas'])->name('interno.consultas');
-    Route::get('/consultas', [ConsultaController::class, 'listarConsultas'])->name('interno.consultas');
+   
+    Route::get('/consultas/{id}', [ConsultaController::class, 'listarConsultas'])->name('interno.consultas');
     Route::post('/consultas/post', [ConsultaController::class, 'storeConsultas'])->name('consulta.insert');
 
     Route::post('/consultas', [ConsultaController::class, 'storeConsultas'])->name('consulta.insert');
@@ -31,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/medicos', [MedicoController::class, 'medicos'])->name('interno.medicos');
     Route::get('/medicos', [MedicoController::class, 'listMedicos'])->name('interno.medicos');
-    Route::get('/medico_informacao', [MedicoController::class, 'medicoinformacao'])->name('interno.medico_informacao');
+    Route::get('/medico_informacao/{id}', [MedicoController::class, 'medicoinformacao'])->name('interno.medico_informacao');
 });
 
 Route::get('/home', [AppController::class, 'home'])->name('interno.home')->middleware('auth');

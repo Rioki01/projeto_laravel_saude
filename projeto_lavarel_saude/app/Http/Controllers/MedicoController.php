@@ -16,8 +16,9 @@ class MedicoController extends Controller
     public function medicos(){
         return view('interno.medicos');
     }
-    public function medicoinformacao(){
-        return view('interno.medico_informacao');
+    public function medicoinformacao($id){
+        $medicos = Medico::where('id',$id)->firstOrFail();
+        return view('interno.medico_informacao',compact("medicos"));
     }
 
     function listMedicosagendamento(){
@@ -30,7 +31,6 @@ class MedicoController extends Controller
         $userId = Auth::id();
         return view("interno.medicos",compact("medicos"));
     }
-
 
 
 }

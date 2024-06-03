@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ConsultaController extends Controller
 {
-    public function listarConsultas(){
-        $consultas = Consulta::all();
+    public function listarConsultas($id){
+        $consultas = Consulta::where('userid',$id)->get();
         return view('interno.consultas', compact('consultas'));
     }
     
@@ -26,6 +26,7 @@ class ConsultaController extends Controller
             "telefone"=>"required",
             "data_nascimento"=>"required",
             "forma_pagamento"=>"required",
+            "userid"=>"required",
         ],[
             'horario.required' => 'Horario é obrigatorio.',
             'data.required' => 'Data da consulta é obrigatoria.',
@@ -35,7 +36,7 @@ class ConsultaController extends Controller
             'forma_pagamento.required' => 'Porfavor, inserir a forma de pagamento.'
         ]);
         $consulta = Consulta::create($request->all());
-        return redirect()->route('interno.consultas');
+        return redirect()->route('interno.home');
     }
 
     public function editConsulta($id){
@@ -57,13 +58,13 @@ class ConsultaController extends Controller
         $consultas->data_nascimento = $request->input('data_nascimento');
         $consultas->forma_pagamento = $request->input('forma_pagamento');
         $consultas->update();
-        return redirect()->route('interno.consultas');
+        return redirect()->route('interno.home');
     }
 
     public function destroyConsulta($id){
         $consulta = Consulta::where('id',$id)->firstOrFail();
         $consulta->delete();
-        return redirect()->route('interno.consultas');
+        return redirect()->route('interno.home');
     }
 
 

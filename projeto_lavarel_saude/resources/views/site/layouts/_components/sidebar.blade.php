@@ -7,8 +7,8 @@
                         <a href="{{ route('interno.agendamento') }}">
                             <button class="btns-sidebar">Agendar consulta</button>
                         </a>
-                        <a href="{{ route('interno.consultas') }}">
-                            <button class="btns-sidebar">Agendados</button>
+                        <a href="{{ route('interno.consultas',['id' => Auth::user()->id]) }}">
+                            <button class="btns-sidebar">Agendados</button> 
                         </a>
                         <a href="{{ route('interno.medicos') }}">
                             <button class="btns-sidebar">Médicos</button>

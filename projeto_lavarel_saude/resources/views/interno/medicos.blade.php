@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <a href="{{ route('interno.medico_informacao') }}"><button class="btn-blue-agendar mx-4">Ver informações</button></a>
+                    <a href="{{ route('interno.medico_informacao',['id' => $medico->id]) }}"><button class="btn-blue-agendar mx-4">Ver informações</button></a>
                 </div>
             </div>
             @endforeach

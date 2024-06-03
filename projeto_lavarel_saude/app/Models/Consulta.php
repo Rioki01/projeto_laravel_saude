@@ -11,6 +11,7 @@ class Consulta extends Model
     protected $fillable = ['rua',
     'bairro',
     'numero',
+    'userid',
     'cidade',
     'especialidade',
     'nomemedico',

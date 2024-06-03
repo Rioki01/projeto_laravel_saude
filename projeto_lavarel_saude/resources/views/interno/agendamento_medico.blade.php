@@ -25,7 +25,7 @@
             <form action="{{route("consulta.insert")}}" class="w-50" method="POST">
                 @csrf
                 <div class="row m-0 mb-3">
-                <input type="hidden" name="users_id" value="{{$medico->userId}}">
+                <input type="hidden" name="userid" value="{{$medico->userid = Auth::user()->id}}">
                 <input type="hidden" name="cidade" value="{{$medico->cidade}}">
                 <input type="hidden" name="bairro" value="{{$medico->bairro}}">
                 <input type="hidden" name="rua" value="{{$medico->rua}}">
