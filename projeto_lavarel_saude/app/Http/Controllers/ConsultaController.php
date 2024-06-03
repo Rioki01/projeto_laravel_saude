@@ -26,6 +26,13 @@ class ConsultaController extends Controller
             "telefone"=>"required",
             "data_nascimento"=>"required",
             "forma_pagamento"=>"required",
+        ],[
+            'horario.required' => 'Horario é obrigatorio.',
+            'data.required' => 'Data da consulta é obrigatoria.',
+            'nomepaciente.required' => 'Nome do Paciente é obrigatorio para consultas.',
+            'telefone.required' => 'Telefone é obrigatorio para consultas.',
+            'data_nascimento.required' => 'Porfavor, inserir a data de nascimento.',
+            'forma_pagamento.required' => 'Porfavor, inserir a forma de pagamento.'
         ]);
         $consulta = Consulta::create($request->all());
         return redirect()->route('interno.consultas');

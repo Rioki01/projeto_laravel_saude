@@ -42,7 +42,7 @@ class AuthController extends Controller
     public function loginDestroy()
     {
         Auth::logout();
-        return redirect()->route('site.login');
+        return redirect()->route('site.index');
     }
 
 
@@ -65,7 +65,7 @@ class AuthController extends Controller
             'email.email' => 'Email invalido.',
             'password.required' => 'Senha é obrigatoria para login.',
             'password.min' => 'A password deve ter no mínimo :min caracteres',
-            'phone.required' => 'telefone é obrigatorio para login.'
+            'phone.required' => 'Telefone é obrigatorio para login.'
         ]);
         
         //se sim, avança para o registro.

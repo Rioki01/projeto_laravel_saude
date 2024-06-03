@@ -4,11 +4,6 @@
 
 @section('conteudo')
 <!--Imprime os erros-->
-<ul>
-    @foreach($errors->all() as $error)
-    <li>{{$error}}
-    @endforeach
-</ul>
 
     <div class="d-flex w-100 min-vh-100">
         @include('site.layouts._components.sidebar')
@@ -41,24 +36,39 @@
 
                     <div class="col-6">
                         <input type="text" class="inputs-agendamento w-100" name="horario" placeholder="Horário: 00:00">
+                        @if ($errors->has('horario'))
+                        <span class="text-danger">{{ $errors->first('horario') }}</span>
+                        @endif
                     </div>
                     <div class="col-6">
                         <input type="date" class="inputs-agendamento w-100" name="data" placeholder="Data: 00/00/0000">
+                        @if ($errors->has('data'))
+                        <span class="text-danger">{{ $errors->first('data') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
                         <input type="text" class="inputs-agendamento w-100" name="nomepaciente" placeholder="Nome do paciente">
+                        @if ($errors->has('nomepaciente'))
+                        <span class="text-danger">{{ $errors->first('nomepaciente') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
                         <input type="text" class="inputs-agendamento w-100" name="telefone" placeholder="Telefone/Celular">
+                        @if ($errors->has('telefone'))
+                        <span class="text-danger">{{ $errors->first('telefone') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
                     <div class="col-12">
                         <input type="text" class="inputs-agendamento w-100" name="data_nascimento" placeholder="Data de nascimento">
+                        @if ($errors->has('data_nascimento'))
+                        <span class="text-danger">{{ $errors->first('data_nascimento') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row m-0 mb-3">
@@ -70,6 +80,9 @@
                             <option value="Cartao">Cartão</option>
                             <option value="Convenio">Possuo Convênio</option>
                         </select>
+                        @if ($errors->has('forma_pagamento'))
+                        <span class="text-danger">{{ $errors->first('forma_pagamento') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="row m-0 mb-3">

@@ -36,12 +36,13 @@
                     <h3 class="subtitulo-agendamento mb-3 fs-5">
                         Informações da consulta:
                     </h3>
-                    <p>Rua:{{$consulta->rua}} </p>
+                    <p>Cidade: {{$consulta->cidade}}</p>
                     <p>Bairro:{{$consulta->bairro}} </p>
+                    <p>Rua:{{$consulta->rua}} </p>
                     <div class="d-flex">
                         <p>Número: {{$consulta->numero}}</p>
-                        <p class="px-1">{{$consulta->cidade}}</p>
                     </div>
+                    
                     <p>Forma de pagamento: {{$consulta->forma_pagamento}}</p>
                     <p>Valor da consulta: {{$consulta->valor}}</p>
                     <div class="d-flex">
