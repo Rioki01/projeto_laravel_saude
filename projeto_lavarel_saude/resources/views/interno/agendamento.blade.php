@@ -40,19 +40,22 @@
                 <h3 class="subtitulo-agendamento mb-3">
                     Médicos disponíveis em sua região:
                 </h3>
-
+                @foreach($medicos as $medico)
                 <div class="area-medico-consulta p-2 d-flex justify-content-between align-itemns-center mb-3">
                     <div class="d-flex align-itemns-center">
                         <img src="{{ asset('img/Rectangle 81.png') }}" width="75" height="75" class="img-medico mx-2"/>
                         <div class="d-flex flex-column justify-content-center">
-                            <h3 class="m-0 mb-1">Nome do Médico</h3>
-                            <p class="m-0">Especialidade: Especialidade do médico</p>
+                            <h3 class="m-0 mb-1">Nome: {{$medico->nome}}</h3>
+                            <p class="m-0">Especialidade: {{$medico->especialidade}}</p>
+                            <p class="m-0">Cidade: {{$medico->cidade}}</p>
+                            <p class="m-0">Preço: {{$medico->preco}}</p>
                         </div>
                     </div>
                     <div class="d-flex flex-column justify-content-center align-items-center">
-                        <a href="{{ route('interno.agendamento_medico') }}"><button class="btn-blue-agendar mx-4">Agendar horário</button></a>
+                        <a href="{{ route('interno.agendamento_medico', ['medicoId' => $medico->id])}}"><button class="btn-blue-agendar mx-4">Agendar horário</button></a>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

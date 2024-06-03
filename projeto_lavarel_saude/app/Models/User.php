@@ -48,4 +48,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Consulta::class);
     }
+
+    //chama o id
+    public function getId()
+    {
+        return $this->id;
+    }
 }

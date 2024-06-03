@@ -13,12 +13,19 @@ return new class extends Migration
     {
         Schema::create('consultas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('paciente_id')->constrained()->onDelete('cascade');
             $table->string('rua');
+            $table->text('cidade');
             $table->text('bairro');
             $table->text('numero');
-            $table->text('especialidade');
-            $table->text('pagamento');
+            $table->text('especialidade'); 
+            $table->text('nomemedico');
+            $table->text('nomepaciente');
+            $table->date('data');
+            $table->text('horario');
+            $table->text('data_nascimento');
+            $table->text('telefone');
+            $table->text('forma_pagamento');
+            $table->text('valor');
             $table->timestamp('data_chamado');
             $table->timestamps();
             });

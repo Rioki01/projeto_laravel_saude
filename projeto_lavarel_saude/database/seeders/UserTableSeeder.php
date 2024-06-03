@@ -15,5 +15,7 @@ class UserTableSeeder extends Seeder
     {
         User::create(['nome' => 'Test User', 'email' => 'test@user.com', 'cpf' => '123456789-10', 'phone' => '1111 1111', 'password' => '12345']);
         User::create(['nome' => 'Test User2', 'email' => 'test2@user.com', 'cpf' => '123456789-11', 'phone' => '2222 2222', 'password' => '12345']);
+        User::create(['nome' => 'Test User3', 'email' => '123@gmail.com', 'cpf' => '123456789-10', 'phone' => '1111 1111', 'password' => '12345']);
+
     }
 }

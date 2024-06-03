@@ -8,7 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Consulta extends Model
 {
     use HasFactory;
-    protected $fillable = ['rua', 'bairro', 'numero', 'especialidade','pagamento', 'valor', 'data_chamado'];
+    protected $fillable = ['rua',
+    'bairro',
+    'numero',
+    'cidade',
+    'especialidade',
+    'nomemedico',
+    'nomepaciente',
+    'data_chamado',
+    'data',
+    'horario',
+    'data_nascimento',
+    'telefone',
+    'forma_pagamento',
+    'valor',
+    ];
 
     public function paciente()
     {

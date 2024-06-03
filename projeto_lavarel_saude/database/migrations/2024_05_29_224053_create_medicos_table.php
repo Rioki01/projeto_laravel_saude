@@ -18,6 +18,10 @@ return new class extends Migration
             $table->text('descricao');
             $table->text('preco');
             $table->text('especialidade');
+            $table->text('cidade');
+            $table->text('bairro');
+            $table->text('rua');
+            $table->text('numero');
         });
     }
 

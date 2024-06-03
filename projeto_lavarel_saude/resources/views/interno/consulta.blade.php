@@ -14,48 +14,52 @@
             <div class="mx-5">
                 <div class="d-flex align-itemns-center mb-4 w-100">
                     <img src="{{ asset('img/Rectangle 81.png') }}" width="120" height="120" class="img-medico"/>
+                    @foreach($consultas as $consulta)
                     <div class="d-flex flex-column justify-content-between info-medico mx-3">
-                        <h3 class="m-0 mb-1">Nome do Médico</h3>
-                        <h4 class="m-0">Especialidade: Especialidade do médico</h4>
-                        <h4>R$ 120,00</h4>
-                        <p>Cidade: Cidade do Médico</p>
+                        <h3 class="m-0 mb-1">Nome do Médico:{{$consulta->nomemedico}}</h3>
+                        <h4 class="m-0">Especialidade: {{$consulta->especialidade}}</h4>
+                        <h4>{{$consulta->valor}}</h4>
+                        <p>Cidade: {{$consulta->cidade}}</p>
                     </div>
                 </div>
                 <div class="info-agendamento">
                     <h3 class="subtitulo-agendamento mb-3 fs-5">
                         Informações do paciente:
                     </h3>
-                    <p>Nome: Flávia de Lima Kredenser</p>
-                    <p>Data de nascimento: 00/00/0000</p>
-                    <p>Cpf: 000.000.000-00</p>
-                    <p>Telefone: (00) 00000-0000</p>
-                    
+                    <p>Nome: {{$consulta->nomepaciente}}</p>
+                    <p>Data de nascimento: {{$consulta->data_nascimento}}</p>
+                    <!--
+                    <p>Cpf: {{$consulta->cpf}}</p>-->
+                    <p>Telefone: {{$consulta->telefone}}</p>
+
+                      
                     <h3 class="subtitulo-agendamento mb-3 fs-5">
                         Informações da consulta:
                     </h3>
-                    <p>Rua:... </p>
-                    <p>Bairro:... </p>
+                    <p>Rua:{{$consulta->rua}} </p>
+                    <p>Bairro:{{$consulta->bairro}} </p>
                     <div class="d-flex">
-                        <p>Número: 000</p>
-                        <p class="px-1">Guarapuava - PR</p>
+                        <p>Número: {{$consulta->numero}}</p>
+                        <p class="px-1">{{$consulta->cidade}}</p>
                     </div>
-                    <p>Forma de pagamento: Cartão de crédito</p>
-                    <p>Valor da consulta: R$000,00</p>
+                    <p>Forma de pagamento: {{$consulta->forma_pagamento}}</p>
+                    <p>Valor da consulta: {{$consulta->valor}}</p>
                     <div class="d-flex">
-                        <p>Data: 00/00/0000</p>
-                        <p class="px-5">Hora: 14:30h</p>
+                        <p>Data: {{$consulta->data}}</p>
+                        <p class="px-5">Hora: {{$consulta->horario}}h</p>
                     </div>
                 </div>
                 <div class="row m-0 mb-3 w-100">
                     <div class="col-6 p-0">
-                        <a href="{{ route('interno.edit-consulta') }}"><button class="btn-blue-agendar w-100">Editar agendamento</button></a>
+                        <a href="{{ route('interno.edit-consulta', ['id' => $consulta->id]) }}"><button class="btn-blue-agendar w-100">Editar agendamento</button></a>
                     </div>
                     <div class="col-6">
-                        <button class="btn-cancelar w-100">Cancelar</button>
+                    <a href="{{ route('interno.delete-consulta', ['id' => $consulta->id]) }}"><button class="btn-cancelar w-100">Cancelar</button></a>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
     @include('site.layouts._partials.footer')
 

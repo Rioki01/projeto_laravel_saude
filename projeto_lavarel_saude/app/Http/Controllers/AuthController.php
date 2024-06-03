@@ -82,5 +82,5 @@ class AuthController extends Controller
         //se falha, re-direciona para a pagina de cadastro
         return redirect(route("site.cadastro"))->with("error","Falha ao cadastrar usuario!");
     }
-    
+
 }

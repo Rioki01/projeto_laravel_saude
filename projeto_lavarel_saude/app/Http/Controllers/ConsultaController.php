@@ -2,47 +2,81 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AppController;
 use App\Models\Consulta;
 use App\Models\User;
+use App\Models\Medico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 // CRUD Consultas
 
 class ConsultaController extends Controller
 {
-    public function index(){
+    //lista todas consultas
+    public function listarConsultas(){
         $consultas = Consulta::all();
-        return view('consultas.index', compact('consulta'));
-    }
-    
-    public function create(){
-        $pacientes = User::all();
-        return view('consultas.create', compact('paciente'));
+        return view('interno.consultas', compact('consultas'));
     }
 
-    public function store(Request $request){
-        $consulta = Consulta::create($request->all());
-        return redirect()->route('consultas.index');
-    }
-
-    public function edit(Consulta $consulta){
-        $pacientes = User::all();
-        return view('consultas.edit', compact('consulta'));
-    }
-
-    public function show(Consulta $consulta)
+    public function destroy(Consulta $consulta)
     {
-    return view('consultas.show', compact('consulta'));
-    }
-
-    public function update(Request $request, Consulta $consulta){
-        $consulta->update($request->all());
-        return redirect()->route('consultas.index');
-    }
-
-    public function destroy(Consulta $consulta){
         $consulta->delete();
-        return redirect()->route('consultas.index');
+        return redirect()->route('interno.consultas');
     }
+
+
+    //cria consultas
+    public function storeConsultas(Request $request){
+        $request->validate([
+            "horario"=>"required",
+            "data"=>"required",
+            "nomepaciente"=>"required",
+            "telefone"=>"required",
+            "data_nascimento"=>"required",
+            "forma_pagamento"=>"required",
+        ]);
+        $consulta = Consulta::create($request->all());
+        return redirect()->route('interno.consultas');
+    }
+
+    //edita consultas
+    public function editConsultas(Consulta $consulta, Request $request, $id){
         
+    }
+
+    //mostra a pagina consulta
+    public function showConsultas(Consulta $consulta)
+    {
+    return view('interno.consultas', compact('consulta'));
+    }
+
+    //update consultas
+    public function updateConsultas(Request $request, Consulta $consulta){
+        $consulta->update($request->all());
+        return redirect()->route('interno.consultas');
+    }
+
+    //destroy consultas
+    public function deleteConsultas(Consulta $consulta, $id){
+        $consulta = Consulta::where("id",$id)->first();
+        $consulta->delete();
+        return redirect()->route('interno.consultas')->with('success', 'Consulta excluída com sucesso!');
+    }
+
+    //salva o ID do medico, quando for agendar consulta
+    public function agendamento_medico(Request $request, $id){
+        $userId = auth()->user()->id;
+        $medicos = Medico::where('id',$id)->get();
+        return view('interno.agendamento_medico',compact("medicos"));
+    }
+
+    //salva o ID da consulta, quando for detalhar consulta.
+    public function detalharConsulta(Request $request, $id){
+        $user = $request->user();
+        $consultas = Consulta::where('id',$id)->get();
+        return view('interno.consulta',compact("consultas"));
+    }
+
 }
