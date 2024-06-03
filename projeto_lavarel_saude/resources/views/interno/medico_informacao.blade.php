@@ -1,6 +1,6 @@
 @extends('site.layouts.basico')
 
-@section('titulo', 'Agendar')
+@section('titulo', 'Info Médico')
 
 @section('conteudo')
 
@@ -11,8 +11,8 @@
         </a>
         <div class="w-100 m-5  px-5 d-flex flex-column justify-content-center align-items-start">
             <div class="mx-5">
-                <div class="d-flex align-itemns-center mb-4 w-100">
-                    <img src="{{ asset('img/Rectangle 81.png') }}" width="120" height="120" class="img-medico"/>
+                <div class="d-flex align-items-center mb-4 w-100">
+                    <img src="{{$medicos->imgUrl}}" width="220" height="220" class="img-medico"/>
                     <div class="d-flex flex-column justify-content-between info-medico mx-3">
                         <h3 class="m-0 mb-1">Nome do Médico: {{ $medicos->nome }}</h3>
                         <h4 class="m-0">Especialidade: {{ $medicos->especialidade }}</h4>

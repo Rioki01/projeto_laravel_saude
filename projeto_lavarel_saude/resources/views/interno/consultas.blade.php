@@ -1,6 +1,6 @@
 @extends('site.layouts.basico')
 
-@section('titulo', 'Agendar')
+@section('titulo', 'Agendamentos')
 
 @section('conteudo')
 
@@ -14,7 +14,7 @@
             @foreach ($consultas as $consulta)
             <div class="area-medico-consulta p-2 d-flex justify-content-between align-itemns-center mb-3">
                 <div class="d-flex align-itemns-center">
-                    <img src="{{ asset('img/Rectangle 81.png') }}" width="75" height="75" class="img-medico mx-2"/>
+                    <img src="{{$consulta->imgMedico}}" width="75" height="75" class="img-medico mx-2"/>
                     <div class="d-flex flex-column justify-content-center">
                         <h3 class="m-0">Nome do Médico: {{$consulta->nomemedico}}</h3>
                         <p class="m-0 my-1">Especialidade: {{$consulta->especialidade}}</p>

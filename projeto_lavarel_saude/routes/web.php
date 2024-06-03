@@ -40,7 +40,6 @@ Route::get('/home', [AppController::class, 'home'])->name('interno.home')->middl
 
 //rotas antes da autenticação/login.
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
-Route::get('/sobrenos', [SiteController::class, 'sobrenos'])->name('site.sobrenos');
 
 //autenticações
 Route::get('/login', [AuthController::class, 'login'])->name('site.login');

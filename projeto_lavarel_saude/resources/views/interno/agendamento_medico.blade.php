@@ -13,9 +13,9 @@
         </a>
         <div class="w-100 m-5 d-flex flex-column justify-content-center align-items-center">
             <div class="d-flex align-itemns-center mb-4 w-50">
-                <img src="{{ asset('img/Rectangle 81.png') }}" width="120" height="120" class="img-medico mx-2"/>
+            @foreach($medicos as $medico)
+                <img src="{{$medico->imgUrl}}" width="120" height="120" class="img-medico mx-2"/>
                 <div class="d-flex flex-column justify-content-between info-medico">
-        @foreach($medicos as $medico)
                     <h3 class="m-0 mb-1">Nome: {{$medico->nome}}</h3>
                     <h4 class="m-0">Especialidade: {{$medico->especialidade}}</h4>
                     <h4>{{$medico->preco}}</h4>
@@ -26,6 +26,7 @@
                 @csrf
                 <div class="row m-0 mb-3">
                 <input type="hidden" name="userid" value="{{$medico->userid = Auth::user()->id}}">
+                <input type="hidden" name="imgMedico" value="{{$medico->imgUrl}}">
                 <input type="hidden" name="cidade" value="{{$medico->cidade}}">
                 <input type="hidden" name="bairro" value="{{$medico->bairro}}">
                 <input type="hidden" name="rua" value="{{$medico->rua}}">

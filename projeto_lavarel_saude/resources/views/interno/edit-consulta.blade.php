@@ -1,6 +1,6 @@
 @extends('site.layouts.basico')
 
-@section('titulo', 'Agendar')
+@section('titulo', 'Editar')
 
 @section('conteudo')
 
