@@ -46,7 +46,8 @@ class ConsultaController extends Controller
         return redirect()->route('interno.consultas');
     }
 
-    public function destroyConsultas(Consulta $consulta){
+    public function destroyConsulta($id){
+        $consulta = Consulta::where('id',$id)->firstOrFail();
         $consulta->delete();
         return redirect()->route('interno.consultas');
     }

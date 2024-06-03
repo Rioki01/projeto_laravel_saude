@@ -53,8 +53,13 @@
                     <div class="col-6 p-0">
                         <a href="{{ route('interno.edit-consulta', ['id' => $consulta->id]) }}"><button class="btn-blue-agendar w-100">Editar agendamento</button></a>
                     </div>
+                        
                     <div class="col-6">
-                    <a href="{{ route('interno.delete-consulta', ['id' => $consulta->id]) }}"><button class="btn-cancelar w-100">Cancelar</button></a>
+                    <form method="POST" action="{{route('consulta.destroy', ['id' => $consulta->id])}}">
+                    @csrf
+                    @method('delete')
+                    <button class="btn-cancelar w-100">Cancelar</button></a>
+                    </form>
                     </div>
                 </div>
             </div>

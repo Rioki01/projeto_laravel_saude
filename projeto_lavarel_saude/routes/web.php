@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/{id}/editar', [AppController::class, 'edit'])->name('interno.edit-consulta');
     Route::post('/consultas', [AppController::class, 'edit'])->name('edit-consulta.post');
 
-    Route::get('/{id}/delete', [AppController::class, 'delete'])->name('interno.delete-consulta');
+    Route::delete('delete/{id}', [ConsultaController::class, 'destroyConsulta'])->name('consulta.destroy');
 
     Route::get('/medicos', [MedicoController::class, 'medicos'])->name('interno.medicos');
     Route::get('/medicos', [MedicoController::class, 'listMedicos'])->name('interno.medicos');
